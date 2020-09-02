@@ -1,0 +1,89 @@
+<resources>
+
+    <!-- Fragments' labels / menu titles -->
+    <string name="app_name">FilmFlop</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="search_label">Search</string>
+    <string name="menu_home">Home</string>
+
+    <!-- Preference Key -->
+    <string name="preference_file_key">Shared Prefs Key</string>
+
+    <!-- Preference Header -->
+    <string name="mode_header">Day and Night Mode</string>
+
+    <!--  Preferences Title-->
+    <string name="mode_title">Swtich Mode</string>
+
+    <!--  Popup Menu Titles-->
+    <string name="change_layout">Change layout</string>
+    <string name="search">Search</string>
+    <string name="sort">Sort</string>
+    <string name="share">Share</string>
+    <string name="delete">delete</string>
+    <string name="more">more</string>
+    <string name="about">About</string>
+    <string name="save_or_delete">Save or delete</string>
+
+    <!--  Tools text-->
+    <string name="description" translatable="false">Simba idolizes his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cubs arrival. Scar, Mufasa\'s brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba\'s exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his.</string>
+    <string name="trailer">trailer</string>
+
+    <!--  Error message for empty TextInputEditText-->
+    <string name="required_text_query_input">Movie title is required</string>
+
+    <!--  CAB Title-->
+    <string name="cab_title">1 selected</string>
+    <string name="save">save</string>
+
+    <!--  Snackbar -->
+    <string name="undo_delete">deleted</string>
+    <string name="undo_action">UNDO</string>
+
+    <!--  Toast error message -->
+    <string name="trailerError">No trailer found</string>
+    <string name="retry">retry</string>
+
+    <!--  Loading state (textView) error message -->
+    <string name="unknown_error">Unknown Error</string>
+    <string name="hint">Movie title</string>
+
+    <!-- AboutFragment  -->
+    <string name="about_overview">FilmFlop is a demo application that uses MVVM pattern and Android Architecture Components.</string>
+    <string name="what_is_filmflop">What is FilmFlop?</string>
+    <string name="about_body">FilmFLop is a demo movie app to browse TMDB\'s movies by titles with options to save a movie to the list of favourites, sort the list and delete.
+        \nFilmFlop fetches a data from the network with use of Retrofit integrating persisted data in the database providing offline capabilities via NetworkBoundResource.
+        \nThe app demonstrates how to expose network status using a Resource class that encapsulate both the data and its state.
+        \nFilmFlop provides an eye-catching design built with Material Components for Android.</string>
+    <string name="by_ersiver">by ersiver</string>
+    <string name="tech_stack"><![CDATA[Tech stack & Open-source libraries:]]></string>
+    <string name="timber">• Timber</string>
+    <string name="moshi">• Moshi</string>
+    <string name="retrofit"><![CDATA[• Retrofit2 & OkHttp3]]></string>
+    <string name="kotlin">• Kotlin Coroutines</string>
+    <string name="glide">• Glide</string>
+    <string name="hilt">• Dagger-Hilt</string>
+    <string name="navigation"><![CDATA[• Navigation & SafeArgs]]></string>
+    <string name="livedata">• LiveData</string>
+    <string name="lifecycle">• Lifecycles</string>
+    <string name="save_state">• Saved State module for ViewModel</string>
+    <string name="viewmodel">• ViewModel</string>
+    <string name="room">• Room</string>
+    <string name="databinding">• DataBinding</string>
+    <string name="genres_tools">Comedy, drama, action, adventure, fantasy, animation, family</string>
+    <string name="search_icon">search icon</string>
+    <string name="sort_icon">sort icon</string>
+    <string name="layout_icon">layout icon</string>
+    <string name="movie_poster">Movie poster</string>
+    <string name="favourite_icon">Favourite icon</string>
+    <string name="category_icon">Category icon</string>
+    <string name="rating_icon">rating icon</string>
+    <string name="date_icon">date icon</string>
+    <string name="language_icon">language icon</string>
+    <string name="app_logo">App logo</string>
+</resources>

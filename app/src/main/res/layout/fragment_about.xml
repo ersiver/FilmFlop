@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/filmFlopSurface"
+    tools:context=".ui.AboutFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/about_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/grid_2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu_item_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/grid_2"
+            android:paddingTop="@dimen/grid_2">
+
+            <TextView
+                android:id="@+id/title_text_view"
+                style="@style/FilmFlopHeadline3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/grid_1"
+                android:layout_marginEnd="@dimen/grid_1"
+                android:text="@string/what_is_filmflop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/author_text_view"
+                style="@style/FilmFlopOverline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/grid_1"
+                android:layout_marginEnd="@dimen/grid_1"
+                android:text="@string/by_ersiver"
+                app:layout_constraintEnd_toStartOf="@+id/logo_image_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_text_view" />
+
+
+            <ImageView
+                android:id="@+id/logo_image_view"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:contentDescription="@string/app_logo"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/author_text_view" />
+
+            <TextView
+                android:id="@+id/overview_text_view"
+                style="@style/FilmFlopOverviewLargeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="@dimen/grid_2"
+                android:text="@string/about_overview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logo_image_view" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/grid_1"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toTopOf="@+id/body_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/overview_text_view" />
+
+            <TextView
+                android:id="@+id/body_text_view"
+                style="@style/FilmFlopBody1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/grid_1"
+                android:layout_marginBottom="@dimen/grid_2"
+                android:text="@string/about_body"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                style="@style/FilmFlopOverviewText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/grid_1"
+                android:text="@string/tech_stack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/body_text_view" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/grid_1"
+                android:layout_marginBottom="@dimen/grid_1"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle">
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/databinding" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/room" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/viewmodel" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save_state" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lifecycle" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/livedata" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/navigation" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hilt" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/glide" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kotlin" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/retrofit" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/moshi" />
+
+                <TextView
+                    style="@style/FilmFlopBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/timber" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</androidx.core.widget.NestedScrollView>

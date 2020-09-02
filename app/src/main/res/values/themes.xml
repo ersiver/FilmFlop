@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="FilmFlopTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Colors-->
+        <item name="colorPrimary">@color/filmFlopPrimaryColor</item>
+        <item name="colorPrimaryDark">@color/filmFlopPrimaryDarkColor</item>
+        <item name="colorAccent">@color/filmFlopSecondaryColor</item>
+        <item name="colorOnPrimary">@color/filmFlopPrimaryTextColor</item>
+        <item name="colorSecondaryVariant">@color/filmFlopSecondaryLightColor</item>
+
+        <!--Drawer-->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeStyle">@style/FilmFLopContextualAppBar</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_close_24</item>
+
+        <!--Typography-->
+        <item name="android:fontFamily">@font/work_sans_semibold</item>
+        <item name="fontFamily">@font/work_sans_semibold</item>
+    </style>
+</resources>

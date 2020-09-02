@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ersiver.filmflop.ui.home.HomeViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/filmFlopPrimaryLightColor"
+        tools:context=".ui.home.HomeFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/home_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/home_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:title="@string/app_name"
+                app:navigationIcon="@drawable/ic_drawer"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <RelativeLayout
+                    android:id="@+id/toolbar_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/app_name"
+                        android:layout_centerVertical="true"
+                        style="@style/FilmFlopToolbarText"/>
+
+                    <ImageButton
+                        android:id="@+id/nav_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center"
+                        android:layout_toStartOf="@id/sort_action"
+                        android:background="?attr/actionBarItemBackground"
+                        android:contentDescription="@string/search_icon"
+                        android:onClick="@{()-> viewModel.navigateToNavSearch()}"
+                        android:padding="@dimen/grid_2"
+                        android:src="@drawable/ic_search" />
+
+                    <ImageButton
+                        android:id="@+id/sort_action"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center"
+                        android:layout_toStartOf="@id/layout_action"
+                        android:background="?attr/actionBarItemBackground"
+                        android:contentDescription="@string/sort_icon"
+                        android:onClick="@{() -> viewModel.updateSortType()}"
+                        android:padding="@dimen/grid_2"
+                        android:src="@drawable/ic_sort" />
+
+                    <ImageButton
+                        android:id="@+id/layout_action"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center"
+                        android:background="?attr/actionBarItemBackground"
+                        android:contentDescription="@string/layout_icon"
+                        android:onClick="@{()->viewModel.updateGridLayout()}"
+                        android:padding="@dimen/grid_2"
+                        app:layoutActionIcon="@{viewModel.columnCount}"
+                        tools:src="@drawable/ic_grid" />
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            app:favouriteListData="@{viewModel.favouriteMovies}"
+            app:gridColumnCount="@{viewModel.columnCount}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_appbar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

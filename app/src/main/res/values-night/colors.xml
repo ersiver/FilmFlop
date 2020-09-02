@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="filmFlopPrimaryColor">#1b3c3d</color>
+    <color name="filmFlopPrimaryLightColor">#456767</color>
+    <color name="filmFlopPrimaryDarkColor">#001717</color>
+    <color name="filmFlopSecondaryColor">#ff9e80</color>
+    <color name="filmFlopSecondaryLightColor">#ffd0b0</color>
+    <color name="filmFlopSecondaryDarkColor">#c96f53</color>
+    <color name="filmFlopPrimaryTextColor">#ffffff</color>
+    <color name="filmFlopWhiteColor">#ffffff</color>
+    <color name="filmFlopSurface">#456767</color>
+</resources>

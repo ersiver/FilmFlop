@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Customized typography for selected components-->
+
+    <!--Body 1 (MovieItem - details, DetailFragment - details, About Fragment - details)-->
+    <style name="FilmFlopBody1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/work_sans</item>
+        <item name="android:textColor">@color/filmFlopPrimaryTextColor</item>
+
+    </style>
+
+    <!-- Body 2 (TextInputLayout Hint) -->
+    <style name="FilmFlopBody2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/work_sans</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+    </style>
+
+    <!-- Toolbar Titles -->
+    <style name="FilmFlopToolbarText" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/work_sans_semibold</item>
+        <item name="android:fontFamily">@font/work_sans_semibold</item>
+    </style>
+
+
+    <!-- DetailFragment - overview -->
+    <style name="FilmFlopOverviewText" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/filmFlopPrimaryTextColor</item>
+    </style>
+
+    <!-- AboutFragment - overview -->
+    <style name="FilmFlopOverviewLargeText" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/work_sans_semibold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/filmFlopPrimaryTextColor</item>
+    </style>
+
+    <!-- Headline 3 (AboutFragment - Title) -->
+    <style name="FilmFlopHeadline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/work_sans_extrabold</item>
+        <item name="android:textColor">@color/filmFlopPrimaryTextColor</item>
+    </style>
+
+    <!-- Headline 4 (Drawer - Title) -->
+    <style name="FilmFlopHeadline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/work_sans_extrabold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!--Headline 5 (MovieItem - title)-->
+    <style name="FilmFlopHeadline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/work_sans_bold</item>
+        <item name="android:fontFamily">@font/work_sans_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Overline (AboutFragment - author) -->
+    <style name="FilmFlopOverline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/work_sans_semibold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/filmFlopSecondaryColor</item>
+    </style>
+
+</resources>

@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Components -->
+    <style name="FilmFlopTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Appbar -->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" >
+    </style>
+
+    <!-- Toolbar menu -->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Contextual action bar -->
+    <style name="FilmFLopContextualAppBar" parent="Widget.AppCompat.ActionMode">
+        <item name="titleTextStyle">?attr/textAppearanceHeadline6</item>
+    </style>
+
+    <!-- TextInputLayout -->
+    <style name="FilmFlopTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">@color/filmFlopSecondaryColor</item>
+        <item name="hintTextAppearance">@style/FilmFlopBody2</item>
+        <item name="boxStrokeColor">@color/filmFlopSecondaryColor</item>
+    </style>
+
+    <!-- Button -->
+    <style name="FilmFlopButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/filmFlopSecondaryColor</item>
+        <item name="strokeColor">@color/filmFlopSecondaryLightColor</item>
+        <item name="strokeWidth">0.8dp</item>
+        <item name="android:textColor">@color/filmFlopWhiteColor</item>
+        <item name="shapeAppearance">?attr/shapeAppearanceMediumComponent</item>
+    </style>
+
+    <!-- Circle Progress indicator -->
+    <style name="FilmFlopCircleProgressIndicator" parent="Widget.MaterialComponents.ProgressIndicator.Circular.Indeterminate">
+        <item name="indicatorColor">@color/filmFlopSecondaryColor</item>
+    </style>
+</resources>
