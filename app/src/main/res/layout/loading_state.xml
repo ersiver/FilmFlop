@@ -1,0 +1,53 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.ersiver.filmflop.util.Status" />
+
+        <variable
+            name="viewModel"
+            type="com.ersiver.filmflop.ui.search.SearchViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:visibility="@{viewModel.results.data==null || viewModel.results.data.size()==0}"
+        android:padding="@dimen/grid_2">
+
+        <TextView
+            android:id="@+id/error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:text="@{viewModel.results.message ?? @string/unknown_error}"
+            app:visibility="@{viewModel.results.status == Status.ERROR}"
+            tools:text="error" />
+
+        <com.google.android.material.progressindicator.ProgressIndicator
+            android:id="@+id/progress"
+            style="@style/FilmFlopCircleProgressIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:visibility="@{viewModel.results.status == Status.LOADING}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/retry_button"
+            style="@style/FilmFlopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/retry"
+            android:visibility="visible"
+            android:onClick="@{() -> viewModel.retry() }"
+            app:visibility="@{viewModel.results.status == Status.ERROR}" />
+    </LinearLayout>
+</layout>
