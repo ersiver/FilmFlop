@@ -19,29 +19,24 @@ class SearchViewModel @ViewModelInject constructor(
 
     private var movieSource: LiveData<Resource<List<Movie>>> = MutableLiveData()
 
-    private val _results = MediatorLiveData<Resource<List<Movie>>>()
-    val results: LiveData<Resource<List<Movie>>>
-        get() = _results
-
     private val query = MutableLiveData<String>()
 
     val input = MutableLiveData<String>()
 
+    private val _results = MediatorLiveData<Resource<List<Movie>>>()
+    val results: LiveData<Resource<List<Movie>>> = _results
+
     private val _errorMessage = MutableLiveData<Boolean>()
-    val errorMessage: LiveData<Boolean>
-        get() = _errorMessage
+    val errorMessage: LiveData<Boolean> = _errorMessage
 
     private val _navigateToDetailEvent = MutableLiveData<SingleEvent<Movie>>()
-    val navigateToDetailEvent: LiveData<SingleEvent<Movie>>
-        get() = _navigateToDetailEvent
+    val navigateToDetailEvent: LiveData<SingleEvent<Movie>> = _navigateToDetailEvent
 
     private val _isTyping = MutableLiveData<Boolean>(true)
-    val isTyping: LiveData<Boolean>
-        get() = _isTyping
+    val isTyping: LiveData<Boolean> = _isTyping
 
     private val _columnCount = MutableLiveData<Int>()
-    val columnCount: LiveData<Int>
-        get() = _columnCount
+    val columnCount: LiveData<Int> = _columnCount
 
     /**
      * Called in SearchFragment onActivityCreated.
@@ -56,7 +51,7 @@ class SearchViewModel @ViewModelInject constructor(
      * span count via BindingAdapter.
      */
     fun updateGridLayout() {
-        val newColumnCount = if(_columnCount.value ==1)2 else 1
+        val newColumnCount = if (_columnCount.value == 1) 2 else 1
         _columnCount.value = newColumnCount
     }
 

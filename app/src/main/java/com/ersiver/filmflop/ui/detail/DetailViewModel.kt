@@ -7,12 +7,17 @@ import com.ersiver.filmflop.repository.MovieRepository
 import com.ersiver.filmflop.util.SingleEvent
 import kotlinx.coroutines.launch
 
-class DetailViewModel @ViewModelInject constructor(val repository: MovieRepository) : ViewModel() {
+class DetailViewModel @ViewModelInject constructor(
+    val repository: MovieRepository
+) : ViewModel() {
+
     val movie: LiveData<Movie> = repository.movie
+
     val isFavourite: LiveData<Boolean> = repository.isFavourite
+
     private val _showTrailerEvent = MutableLiveData<SingleEvent<String>>()
-    val showTrailerEvent: LiveData<SingleEvent<String>>
-    get() = _showTrailerEvent
+
+    val showTrailerEvent: LiveData<SingleEvent<String>> = _showTrailerEvent
 
     /**
      * Gets selected movie via repository.
@@ -49,7 +54,7 @@ class DetailViewModel @ViewModelInject constructor(val repository: MovieReposito
     /**
      * Executes once trailes button is clicked.
      */
-    fun onTrailerClicked(){
+    fun onTrailerClicked() {
         movie.value?.let {
             _showTrailerEvent.value = SingleEvent(it.trailerUrl)
         }
