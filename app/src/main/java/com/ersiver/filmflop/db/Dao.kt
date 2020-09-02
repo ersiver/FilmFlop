@@ -1,6 +1,7 @@
 package com.ersiver.filmflop.db
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteQuery
 import com.ersiver.filmflop.model.Genre
@@ -28,6 +29,7 @@ interface MovieDao {
     //Returns list of favourite movies.
     @RawQuery(observedEntities = [Movie::class])
     fun getFavouriteMovies(query: SupportSQLiteQuery): LiveData<List<Movie>>
+
 }
 
 @Dao

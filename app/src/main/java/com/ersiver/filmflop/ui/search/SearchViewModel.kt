@@ -6,6 +6,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
+import androidx.paging.PagedList
 import com.ersiver.filmflop.model.Movie
 import com.ersiver.filmflop.repository.MovieRepository
 import com.ersiver.filmflop.util.Resource

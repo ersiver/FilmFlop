@@ -31,6 +31,7 @@ class HomeFragment : Fragment() {
             Context.MODE_PRIVATE
         )
     }
+
     private lateinit var homeAdapter: MovieAdapter
     private var actionMode: ActionMode? = null
 
@@ -109,7 +110,7 @@ class HomeFragment : Fragment() {
             "${movie.title} " + resources.getString(R.string.undo_delete),
             Snackbar.LENGTH_SHORT
         ).setAction(resources.getString(R.string.undo_action)) {
-            homeViewModel.setFavourite(movie)
+            homeViewModel.undoRemove(movie)
         }.show()
     }
 
@@ -156,8 +157,8 @@ class HomeFragment : Fragment() {
                             ): Boolean {
                                 return when (item.itemId) {
                                     R.id.delete -> {
-                                        homeViewModel.setFavourite(movie)
-                                        homeViewModel.undoRemove(movie)
+                                        homeViewModel.removeFromFavourite(movie)
+                                        homeViewModel.undoRemoveSnackBar(movie)
                                         mode.finish() // Action picked, so close the CAB
                                         true
                                     }

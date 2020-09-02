@@ -15,30 +15,23 @@ class HomeViewModel @ViewModelInject constructor(
 ) : ViewModel() {
 
     private var movieSource: LiveData<List<Movie>> = MutableLiveData()
-
     private val _favouriteMovies = MediatorLiveData<List<Movie>>()
-    val favouriteMovies: LiveData<List<Movie>>
-        get() = _favouriteMovies
-
-    private val _navigateToDetail = MutableLiveData<SingleEvent<Movie>>()
-    val navigateToDetail: LiveData<SingleEvent<Movie>>
-        get() = _navigateToDetail
-
-    private val _navigateToSearch = MutableLiveData<SingleEvent<Boolean>>()
-    val navigateToSearch: LiveData<SingleEvent<Boolean>>
-        get() = _navigateToSearch
-
-    private val _undoRemoveEvent = MutableLiveData<SingleEvent<Movie>>()
-    val undoRemoveEvent: LiveData<SingleEvent<Movie>>
-        get() = _undoRemoveEvent
+    val favouriteMovies: LiveData<List<Movie>> = _favouriteMovies
 
     private val _sortType = MutableLiveData<String>()
-    val sortType: LiveData<String>
-        get() = _sortType
+    val sortType: LiveData<String> = _sortType
+
+    private val _navigateToDetail = MutableLiveData<SingleEvent<Movie>>()
+    val navigateToDetail: LiveData<SingleEvent<Movie>> = _navigateToDetail
+
+    private val _navigateToSearch = MutableLiveData<SingleEvent<Boolean>>()
+    val navigateToSearch: LiveData<SingleEvent<Boolean>> = _navigateToSearch
+
+    private val _undoRemoveEvent = MutableLiveData<SingleEvent<Movie>>()
+    val undoRemoveEvent: LiveData<SingleEvent<Movie>> = _undoRemoveEvent
 
     private val _columnCount = MutableLiveData<Int>()
-    val columnCount: LiveData<Int>
-        get() = _columnCount
+    val columnCount: LiveData<Int> = _columnCount
 
     /**
      * Called in HomeFragment onActivityCreated.
@@ -62,7 +55,7 @@ class HomeViewModel @ViewModelInject constructor(
      * span count via BindingAdapter.
      */
     fun updateGridLayout() {
-        val newColumnCount = if(_columnCount.value ==1)2 else 1
+        val newColumnCount = if (_columnCount.value == 1) 2 else 1
         _columnCount.value = newColumnCount
     }
 
@@ -71,11 +64,11 @@ class HomeViewModel @ViewModelInject constructor(
      * Submits the list of favourite movies via BindingAdapter.
      */
     fun getFavourites(sort: String) {
-            _favouriteMovies.removeSource(movieSource)
-            movieSource = repository.getFavouriteMovies(sort)
-            _favouriteMovies.addSource(movieSource) {
-                _favouriteMovies.value = it
-            }
+        _favouriteMovies.removeSource(movieSource)
+        movieSource = repository.getFavouriteMovies(sort)
+        _favouriteMovies.addSource(movieSource) {
+            _favouriteMovies.value = it
+        }
     }
 
     /**
@@ -95,23 +88,35 @@ class HomeViewModel @ViewModelInject constructor(
     }
 
     /**
-     * Executes once [Movie] item is deleted from the list of favourite.
+     * Executes once [Movie] item is deleted
+     * from the list of favourites.
      */
-    fun setFavourite(movie: Movie) {
-        val lastFavouriteStatus = movie.isFavourite
-        movie.isFavourite = !lastFavouriteStatus
-        movie.saveDate = System.currentTimeMillis()
-
-        viewModelScope.launch {
-            repository.update(movie)
-        }
+    fun removeFromFavourite(movie: Movie) {
+        movie.isFavourite = false
+        update(movie)
     }
 
     /**
      * Executes once a [Movie] item is deleted
-     * giving option to undo delete.
+     * giving an option to undo delete.
+     */
+    fun undoRemoveSnackBar(movie: Movie) {
+        _undoRemoveEvent.value = SingleEvent(movie)
+    }
+
+    /**
+     * Executes once a user selects Undo.
+     * Ensures the item backs on the same
+     * position since no changes in save_date.
      */
     fun undoRemove(movie: Movie) {
-        _undoRemoveEvent.value = SingleEvent(movie)
+        movie.isFavourite = true
+        update(movie)
+    }
+
+    private fun update(movie: Movie) {
+        viewModelScope.launch {
+            repository.update(movie)
+        }
     }
 }

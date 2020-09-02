@@ -2,6 +2,7 @@ package com.ersiver.filmflop.ui.common
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.ersiver.filmflop.model.Movie
@@ -30,11 +31,11 @@ class MovieAdapter(private val listener: MovieAdapterListener) :
         val movie = getItem(position)
 
         holder.itemView.setOnClickListener {
-            listener.onClick(holder.itemView, movie)
+            listener.onClick(holder.itemView, movie!!)
         }
 
         holder.itemView.setOnLongClickListener {
-            listener.onLongClick(movie)
+            listener.onLongClick(movie!!)
         }
 
         holder.bind(movie)

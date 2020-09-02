@@ -1,7 +1,9 @@
 package com.ersiver.filmflop.repository
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
+import androidx.sqlite.db.SimpleSQLiteQuery
 import com.ersiver.filmflop.api.*
 import com.ersiver.filmflop.db.FilmFlopDatabase
 import com.ersiver.filmflop.model.Movie
@@ -9,6 +11,7 @@ import com.ersiver.filmflop.model.Trailer
 import com.ersiver.filmflop.util.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -26,6 +29,8 @@ class MovieRepository @Inject constructor(
     private val _isFavourite = MutableLiveData<Boolean>()
     val isFavourite: LiveData<Boolean>
         get() = _isFavourite
+
+    private val databaseQuery = MutableLiveData<SimpleSQLiteQuery>()
 
     /**
      * Room and network operations to get list of searched movies
@@ -106,10 +111,12 @@ class MovieRepository @Inject constructor(
     fun getFavouriteMovies(sort: String): LiveData<List<Movie>> {
         val sortType: SortUtil.Companion.MovieSortType =
             SortUtil.Companion.MovieSortType.valueOf(sort)
-        val query = SortUtil.getAllQuery(sortType)
-        return database.movieDao.getFavouriteMovies(query)
-    }
+        databaseQuery.value = SortUtil.getAllQuery(sortType)
 
+        return Transformations.switchMap(databaseQuery) {
+            database.movieDao.getFavouriteMovies(it)
+        }
+    }
 
     /**
      * Get movie's genres from the database.
