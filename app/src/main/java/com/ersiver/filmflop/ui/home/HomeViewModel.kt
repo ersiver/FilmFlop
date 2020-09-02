@@ -37,8 +37,8 @@ class HomeViewModel @ViewModelInject constructor(
      * Called in HomeFragment onActivityCreated.
      */
     fun start(currentSort: String, columnCountGrid: Int) {
-        _sortType.value = currentSort
         _columnCount.value = columnCountGrid
+        _sortType.value = currentSort
     }
 
     /**

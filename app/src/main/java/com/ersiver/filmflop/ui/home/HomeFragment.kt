@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.ersiver.filmflop.R
 import com.ersiver.filmflop.databinding.FragmentHomeBinding
 import com.ersiver.filmflop.model.Movie
@@ -31,7 +32,6 @@ class HomeFragment : Fragment() {
             Context.MODE_PRIVATE
         )
     }
-
     private lateinit var homeAdapter: MovieAdapter
     private var actionMode: ActionMode? = null
 
@@ -63,6 +63,10 @@ class HomeFragment : Fragment() {
             findNavController().navigate(HomeFragmentDirections.actionNavHomeToSearchFragment())
         })
 
+        homeViewModel.columnCount.observe(viewLifecycleOwner, Observer { columnCount ->
+            saveColumnCountToSharedPrefs(columnCount)
+        })
+
         homeViewModel.sortType.observe(viewLifecycleOwner, Observer { sort ->
             saveSortToSharedPrefs(sort)
             homeViewModel.getFavourites(sort)
@@ -70,10 +74,6 @@ class HomeFragment : Fragment() {
 
         homeViewModel.undoRemoveEvent.observe(viewLifecycleOwner, EventObserver {
             displaySnackBarWithUndoRemove(it)
-        })
-
-        homeViewModel.columnCount.observe(viewLifecycleOwner, Observer { columnCount ->
-            saveColumnCountToSharedPrefs(columnCount)
         })
     }
 
