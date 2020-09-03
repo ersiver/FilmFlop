@@ -24,7 +24,6 @@ The app demonstrates use of MVVM, Kotlin Coroutines and Android Architecture Com
   - Room Persistence - Access app's SQLite database with in-app objects and compile-time checks.
   - NetworkBoundResource - to write the disk and network-bound implementations providing offline capabilities.
   - ViewModel - UI related data holder, lifecycle aware.
-  - Saved State module for ViewModel data - that survives background process restart.
   - Lifecycles - Create a UI that automatically responds to lifecycle events.
   - LiveData - Build data objects that notify views when the underlying database changes.
   - Navigation for navigation between different screens, handling up buttons and menu items. 
