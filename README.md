@@ -1,14 +1,14 @@
 # FilmFlop
 <img src="/previews/preview_1.gif" align="right" width="33%"/>
 
-FilmFLop is a demo movie app to browse TMDB's movies by titles with options to save a movie to the list of favourites, sort the list and delete.
+FilmFlop is a demo movie app to browse TMDB's movies by titles with options to save a movie to the list of favourites, sort the list and delete.
 The app demonstrates use of MVVM, Kotlin Coroutines and Android Architecture Components. FilmFlop fetches a data from the network with use of Retrofit integrating persisted data in the database providing offline capabilities via NetworkBoundResource. The app demonstrates how to expose network status using a Resource class that encapsulate both the data and its state. FilmFlop provides an eye-catching design built with Material Components for Android.
 
 ## Features
   + Displaying network status while fetching data (circle progress bar when loading, error message and retry button in case of failures).
   + Adding a movie to the list of favourite by pressing the icon in the menu. The icon will changed appropriately indicating an option to remove the movie.
   + Deleting a movie from the favourites with use of contextual action bar.
-  + SnacBark with Undo delete option.
+  + SnackBar with Undo delete option.
   + Sorting a list of favourites by a title or time-added with a use of SupportSQLiteQuery.
   + Changing a layout from a linear to a grid by pressing icon in the menu. The icon will changed appropriately indicating different layout.
   + Opening a movie's trailer on YouTobue.
