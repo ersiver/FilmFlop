@@ -1,7 +1,6 @@
 package com.ersiver.filmflop.ui.search
 
 import android.view.KeyEvent
-import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.hilt.lifecycle.ViewModelInject
@@ -45,7 +44,7 @@ class SearchViewModel @ViewModelInject constructor(
     }
 
     /**
-     * Executes once the [MenuItem] action_layout is clicked.
+     * Executes once the ImageButton action_layout is clicked.
      * Gets the appropriate column count. Sets the span count
      * and the icon of layout_action ImageButton via BindingAdapter.
      */

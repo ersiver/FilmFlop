@@ -1,6 +1,5 @@
 package com.ersiver.filmflop.ui.home
 
-import android.view.MenuItem
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.ersiver.filmflop.model.Movie
@@ -46,7 +45,7 @@ class HomeViewModel @ViewModelInject constructor(
     }
 
     /**
-     * Executes whenever [MenuItem] action_sort is clicked.
+     * Executes whenever ImageButton action_sort is clicked.
      */
     fun updateSortType() {
         val newSortType = if (_sortType.value == DEFAULT_SORT) TITLE_SORT else DEFAULT_SORT
@@ -65,7 +64,7 @@ class HomeViewModel @ViewModelInject constructor(
     }
 
     /**
-     * Executes once the [MenuItem] action_layout is clicked.
+     * Executes once the ImageButton action_layout is clicked.
      * Gets the column count and sets the appropriate span count
      * and the icon of layout_action ImageButton via BindingAdapter.
      */
@@ -75,7 +74,7 @@ class HomeViewModel @ViewModelInject constructor(
     }
 
     /**
-     * Called once [MenuItem] nav_search is clicked.
+     * Called once the ImageButton nav_search is clicked.
      * Triggers navigation to the SearchFragment.
      */
     fun navigateToSearch() {
