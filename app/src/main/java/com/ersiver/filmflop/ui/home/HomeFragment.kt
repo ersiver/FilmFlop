@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import com.ersiver.filmflop.R
 import com.ersiver.filmflop.databinding.FragmentHomeBinding
 import com.ersiver.filmflop.model.Movie
@@ -53,7 +52,7 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        getSavedDataAndStartViewModel()
+        getSavedPrefsAndStartViewModel()
 
         homeViewModel.navigateToDetail.observe(viewLifecycleOwner, EventObserver {
             findNavController().navigate(HomeFragmentDirections.actionNavHomeToDetailFragment(it))
@@ -61,6 +60,14 @@ class HomeFragment : Fragment() {
 
         homeViewModel.navigateToSearch.observe(viewLifecycleOwner, EventObserver {
             findNavController().navigate(HomeFragmentDirections.actionNavHomeToSearchFragment())
+        })
+
+        homeViewModel.snackBarEvent.observe(viewLifecycleOwner, EventObserver {
+            displaySnackBarWithUndoRemove(it)
+        })
+
+        homeViewModel.contextualMenuEvent.observe(viewLifecycleOwner, EventObserver {
+            displayContextualMenuWithDelete(it)
         })
 
         homeViewModel.columnCount.observe(viewLifecycleOwner, Observer { columnCount ->
@@ -71,9 +78,35 @@ class HomeFragment : Fragment() {
             saveSortToSharedPrefs(sort)
             homeViewModel.getFavourites(sort)
         })
+    }
 
-        homeViewModel.undoRemoveEvent.observe(viewLifecycleOwner, EventObserver {
-            displaySnackBarWithUndoRemove(it)
+    /**
+     * Returns last set sort type and column count.
+     * Ensures that's properly initialized with the default value
+     * when this method is called for the first time.
+     */
+    private fun getSavedPrefsAndStartViewModel() {
+        val currentSort = sharedPrefs.getString(PREFS_SORT, DEFAULT_SORT).toString()
+        val columnCountGrid = sharedPrefs.getInt(HOME_GRID_COLUMN, DEFAULT_COLUMN_COUNT)
+
+        homeViewModel.start(currentSort, columnCountGrid)
+    }
+
+    /**
+     * Init adapter with onClick and onLongClick listeners.
+     */
+    private fun initAdapter(): MovieAdapter {
+        return MovieAdapter(object :
+            MovieAdapter.MovieAdapterListener {
+
+            override fun onClick(view: View, movie: Movie) {
+                homeViewModel.navigateToDetail(movie)
+            }
+
+            override fun onLongClick(movie: Movie): Boolean {
+                homeViewModel.displayMenuWithDelete(movie)
+                return true
+            }
         })
     }
 
@@ -89,20 +122,57 @@ class HomeFragment : Fragment() {
     }
 
     /**
-     * Returns last set sort type and column count.
-     * Ensures that's properly initialized with the default value
-     * when this method is called for the first time.
+     * Invoked when the changes on the [HomeViewModel.contextualMenuEvent] observed.
+     * Displays contextual menu with an option to delete.
      */
-    private fun getSavedDataAndStartViewModel() {
-        val currentSort = sharedPrefs.getString(PREFS_SORT, DEFAULT_SORT).toString()
-        val columnCountGrid = sharedPrefs.getInt(HOME_GRID_COLUMN, DEFAULT_COLUMN_COUNT)
+    private fun displayContextualMenuWithDelete(movie: Movie) {
+        if (actionMode == null) {
 
-        homeViewModel.start(currentSort, columnCountGrid)
+            actionMode = requireActivity().startActionMode(object :
+                ActionMode.Callback {
+
+                // Called when the user selects a contextual menu item
+                override fun onActionItemClicked(
+                    mode: ActionMode, item: MenuItem
+                ): Boolean {
+                    return when (item.itemId) {
+                        R.id.delete -> {
+                            homeViewModel.removeFromFavourite(movie)
+                            homeViewModel.displaySnackBarWithUndo(movie)
+                            mode.finish() // Action picked, so close the CAB
+                            true
+                        }
+                        else -> false
+                    }
+                }
+
+                // Called when the action mode is created; startActionMode() was called
+                override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+                    val inflater: MenuInflater = mode.menuInflater
+                    inflater.inflate(R.menu.home_contextual_menu, menu)
+                    return true
+                }
+
+                // Return false if nothing is done
+                override fun onPrepareActionMode(
+                    mode: ActionMode?,
+                    menu: Menu?
+                ): Boolean {
+                    return false
+                }
+
+                // Called when the user exits the action mode
+                override fun onDestroyActionMode(mode: ActionMode?) {
+                    actionMode = null
+                }
+            })
+            actionMode?.title = resources.getString(R.string.cab_title)
+        }
     }
 
     /**
-     * Display snackBar when the user remove the movie
-     * from the list with an option to undo delete.
+     * Invoked when the changes on the [HomeViewModel.snackBarEvent] observed.
+     * Displays a SnackBar with an option to undo delete.
      */
     private fun displaySnackBarWithUndoRemove(movie: Movie) {
         Snackbar.make(
@@ -114,84 +184,26 @@ class HomeFragment : Fragment() {
         }.show()
     }
 
+
     /**
-     * Save a new sort type to the shared prefs.
+     * Invoked when the changes on the [HomeViewModel.sortType] observed.
+     * Saves a new sort to the shared preferences.
      */
     private fun saveSortToSharedPrefs(sort: String?) {
-        with(sharedPrefs.edit()){
+        with(sharedPrefs.edit()) {
             putString(PREFS_SORT, sort)
             apply()
         }
     }
 
     /**
-     * Save a new column count to the shared prefs.
+     * Invoked when the changes on the [HomeViewModel.columnCount] observed.
+     * Saves a new column count to the shared preferences.
      */
     private fun saveColumnCountToSharedPrefs(columnCount: Int) {
-        with(sharedPrefs.edit()){
+        with(sharedPrefs.edit()) {
             putInt(HOME_GRID_COLUMN, columnCount)
             apply()
         }
-    }
-
-    /**
-     * Init adapter with onClick and onLongClick listeners.
-     */
-    private fun initAdapter(): MovieAdapter {
-        return MovieAdapter(object :
-            MovieAdapter.MovieAdapterListener {
-
-            override fun onClick(view: View, movie: Movie) {
-                homeViewModel.navigateToDetail(movie)
-            }
-
-            override fun onLongClick(movie: Movie): Boolean {
-                return when (actionMode) {
-                    null -> {
-                        actionMode = requireActivity().startActionMode(object :
-                            ActionMode.Callback {
-
-                            // Called when the user selects a contextual menu item
-                            override fun onActionItemClicked(
-                                mode: ActionMode, item: MenuItem
-                            ): Boolean {
-                                return when (item.itemId) {
-                                    R.id.delete -> {
-                                        homeViewModel.removeFromFavourite(movie)
-                                        homeViewModel.undoRemoveSnackBar(movie)
-                                        mode.finish() // Action picked, so close the CAB
-                                        true
-                                    }
-                                    else -> false
-                                }
-                            }
-
-                            // Called when the action mode is created; startActionMode() was called
-                            override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-                                val inflater: MenuInflater = mode.menuInflater
-                                inflater.inflate(R.menu.home_contextual_menu, menu)
-                                return true
-                            }
-
-                            // Return false if nothing is done
-                            override fun onPrepareActionMode(
-                                mode: ActionMode?,
-                                menu: Menu?
-                            ): Boolean {
-                                return false
-                            }
-
-                            // Called when the user exits the action mode
-                            override fun onDestroyActionMode(mode: ActionMode?) {
-                                actionMode = null
-                            }
-                        })
-                        actionMode?.title = resources.getString(R.string.cab_title)
-                        true
-                    }
-                    else -> false
-                }
-            }
-        })
     }
 }

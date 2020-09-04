@@ -20,7 +20,7 @@ class DetailViewModel @ViewModelInject constructor(
     val showTrailerEvent: LiveData<SingleEvent<String>> = _showTrailerEvent
 
     /**
-     * Gets selected movie via repository.
+     * Init selected movie via repository.
      */
     fun getMovie(id: Int) {
         viewModelScope.launch {
@@ -29,7 +29,11 @@ class DetailViewModel @ViewModelInject constructor(
     }
 
     /**
-     * Executes once favourite icon is clicked.
+     * Executes once add_remove_action ImageButton is clicked.
+     *
+     * Triggers changes of the [Movie.isFavourite]to the
+     * database via update() and sets the appropriate icon of the
+     * add_remove_action ImageButton via BindingAdapter.
      */
     fun setFavorite() {
         movie.value?.let { selectedMovie ->
@@ -37,26 +41,27 @@ class DetailViewModel @ViewModelInject constructor(
             selectedMovie.isFavourite = !lastFavouriteStatus
             selectedMovie.saveDate = System.currentTimeMillis()
 
-            updateMovie(selectedMovie)
+            update(selectedMovie)
         }
     }
 
     /**
-     * Updates a movie is_favourite field
-     * via repository.
-     */
-    private fun updateMovie(movie: Movie) {
-        viewModelScope.launch {
-            repository.update(movie)
-        }
-    }
-
-    /**
-     * Executes once trailes button is clicked.
+     * Executes once trailer Button is clicked.
+     * Triggers navigation to the movie trailer.
      */
     fun onTrailerClicked() {
         movie.value?.let {
             _showTrailerEvent.value = SingleEvent(it.trailerUrl)
+        }
+    }
+
+    /**
+     * Helper method to update the changes
+     * to the Movie via repository.
+     */
+    private fun update(movie: Movie) {
+        viewModelScope.launch {
+            repository.update(movie)
         }
     }
 }

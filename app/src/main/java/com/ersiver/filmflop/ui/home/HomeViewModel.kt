@@ -21,17 +21,21 @@ class HomeViewModel @ViewModelInject constructor(
     private val _sortType = MutableLiveData<String>()
     val sortType: LiveData<String> = _sortType
 
+    private val _columnCount = MutableLiveData<Int>()
+    val columnCount: LiveData<Int> = _columnCount
+
     private val _navigateToDetail = MutableLiveData<SingleEvent<Movie>>()
     val navigateToDetail: LiveData<SingleEvent<Movie>> = _navigateToDetail
 
     private val _navigateToSearch = MutableLiveData<SingleEvent<Boolean>>()
     val navigateToSearch: LiveData<SingleEvent<Boolean>> = _navigateToSearch
 
-    private val _undoRemoveEvent = MutableLiveData<SingleEvent<Movie>>()
-    val undoRemoveEvent: LiveData<SingleEvent<Movie>> = _undoRemoveEvent
+    private val _snackBarEvent = MutableLiveData<SingleEvent<Movie>>()
+    val snackBarEvent: LiveData<SingleEvent<Movie>> = _snackBarEvent
 
-    private val _columnCount = MutableLiveData<Int>()
-    val columnCount: LiveData<Int> = _columnCount
+    private val _contextualMenuEvent = MutableLiveData<SingleEvent<Movie>>()
+    val contextualMenuEvent: LiveData<SingleEvent<Movie>> = _contextualMenuEvent
+
 
     /**
      * Called in HomeFragment onActivityCreated.
@@ -50,17 +54,6 @@ class HomeViewModel @ViewModelInject constructor(
     }
 
     /**
-     * Executes once the [MenuItem] action_layout is clicked.
-     * Gets the appropriate column count and sets GridLayoutManager
-     * span count via BindingAdapter.
-     */
-    fun updateGridLayout() {
-        val newColumnCount = if (_columnCount.value == 1) 2 else 1
-        _columnCount.value = newColumnCount
-    }
-
-    /**
-     * Called when app launches and whenever sort type changes.
      * Submits the list of favourite movies via BindingAdapter.
      */
     fun getFavourites(sort: String) {
@@ -72,15 +65,25 @@ class HomeViewModel @ViewModelInject constructor(
     }
 
     /**
-     * Called once [MenuItem] nav_search is clicked.
-     * Triggers navigation to the SearchFragment
+     * Executes once the [MenuItem] action_layout is clicked.
+     * Gets the column count and sets the appropriate span count
+     * and the icon of layout_action ImageButton via BindingAdapter.
      */
-    fun navigateToNavSearch() {
+    fun updateGridLayout() {
+        val newColumnCount = if (_columnCount.value == 1) 2 else 1
+        _columnCount.value = newColumnCount
+    }
+
+    /**
+     * Called once [MenuItem] nav_search is clicked.
+     * Triggers navigation to the SearchFragment.
+     */
+    fun navigateToSearch() {
         _navigateToSearch.value = SingleEvent(true)
     }
 
     /**
-     * Executes once a [Movie] is selected.
+     * Executes onClick(), when a [Movie] is selected.
      * Triggers navigation to DetailFragment.
      */
     fun navigateToDetail(movie: Movie) {
@@ -88,32 +91,47 @@ class HomeViewModel @ViewModelInject constructor(
     }
 
     /**
+     * Executes on LongClick(). Triggers displaying
+     * contextual menu with a delete option.
+     */
+    fun displayMenuWithDelete(movie: Movie){
+        _contextualMenuEvent.value = SingleEvent(movie)
+    }
+
+    /**
      * Executes once [Movie] item is deleted
-     * from the list of favourites.
+     * from the list of favourites. Triggers
+     * changes to the database via update().
      */
     fun removeFromFavourite(movie: Movie) {
         movie.isFavourite = false
+
         update(movie)
     }
 
     /**
-     * Executes once a [Movie] item is deleted
-     * giving an option to undo delete.
+     * Executes once a [Movie] item is deleted.
+     * Triggers displaying SnackBar with an
+     * option to undo delete.
      */
-    fun undoRemoveSnackBar(movie: Movie) {
-        _undoRemoveEvent.value = SingleEvent(movie)
+    fun displaySnackBarWithUndo(movie: Movie) {
+        _snackBarEvent.value = SingleEvent(movie)
     }
 
     /**
-     * Executes once a user selects Undo.
-     * Ensures the item backs on the same
-     * position since no changes in save_date.
+     * Executes once undo in the SnackBar is selected.
+     * Ensures the item backs on the same position
+     * since no changes in save_date.
      */
     fun undoRemove(movie: Movie) {
         movie.isFavourite = true
         update(movie)
     }
 
+    /**
+     * Helper method to update the changes
+     * to the Movie via repository.
+     */
     private fun update(movie: Movie) {
         viewModelScope.launch {
             repository.update(movie)

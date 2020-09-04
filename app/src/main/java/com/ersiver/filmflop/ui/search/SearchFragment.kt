@@ -49,12 +49,12 @@ class SearchFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        getSavedDataAndStartViewModel()
+        getSavedPrefsAndStartViewModel()
 
-        searchViewModel.navigateToDetailEvent.observe(viewLifecycleOwner, EventObserver {
+        searchViewModel.navigateToDetailEvent.observe(viewLifecycleOwner, EventObserver {movie->
             findNavController().navigate(
                 SearchFragmentDirections.actionSearchFragmentToDetailFragment(
-                    it
+                    movie
                 )
             )
         })
@@ -89,13 +89,15 @@ class SearchFragment : Fragment() {
      * Updates ViewModel so it triggers setting of
      * recyclerview's span count via BindingAdapter.
      */
-    private fun getSavedDataAndStartViewModel() {
+    private fun getSavedPrefsAndStartViewModel() {
         val columnCountGrid = sharedPrefs.getInt(SEARCH_GRID_COLUMN, DEFAULT_COLUMN_COUNT)
         searchViewModel.start(columnCountGrid)
     }
 
+
     /**
-     * Save a new column count to the shared prefs.
+     * Invoked when the changes on the [SearchViewModel.columnCount] observed.
+     * Saves a new column count to the shared preferences.
      */
     private fun saveColumnCountToSharedPrefs(columnCount: Int) {
         with(sharedPrefs.edit()){

@@ -17,7 +17,6 @@ import com.ersiver.filmflop.model.Movie
 import com.ersiver.filmflop.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
-import java.lang.Exception
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
@@ -46,6 +45,7 @@ class DetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        //Pass the selected movie id.
         detailViewModel.getMovie(movie.id)
 
         detailViewModel.showTrailerEvent.observe(viewLifecycleOwner, EventObserver {
@@ -54,7 +54,10 @@ class DetailFragment : Fragment() {
     }
 
     /**
-     * Navigates to YouTube.
+     * Invoked when the changes on the
+     * [DetailViewModel.showTrailerEvent] observed.
+     *
+     * Opens the movie trial on YouTube.
      */
     private fun showMovieTrailer(url: String) {
         try {

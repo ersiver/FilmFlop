@@ -57,7 +57,7 @@
                         android:layout_toStartOf="@id/sort_action"
                         android:background="?attr/actionBarItemBackground"
                         android:contentDescription="@string/search_icon"
-                        android:onClick="@{()-> viewModel.navigateToNavSearch()}"
+                        android:onClick="@{()-> viewModel.navigateToSearch()}"
                         android:padding="@dimen/grid_2"
                         android:src="@drawable/ic_search" />
 

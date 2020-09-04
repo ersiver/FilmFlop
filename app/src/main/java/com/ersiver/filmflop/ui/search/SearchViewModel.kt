@@ -6,7 +6,6 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import androidx.paging.PagedList
 import com.ersiver.filmflop.model.Movie
 import com.ersiver.filmflop.repository.MovieRepository
 import com.ersiver.filmflop.util.Resource
@@ -47,8 +46,8 @@ class SearchViewModel @ViewModelInject constructor(
 
     /**
      * Executes once the [MenuItem] action_layout is clicked.
-     * Gets the appropriate column count and sets RecyclerView
-     * span count via BindingAdapter.
+     * Gets the appropriate column count. Sets the span count
+     * and the icon of layout_action ImageButton via BindingAdapter.
      */
     fun updateGridLayout() {
         val newColumnCount = if (_columnCount.value == 1) 2 else 1
@@ -123,7 +122,7 @@ class SearchViewModel @ViewModelInject constructor(
     }
 
     /**
-     * Helper function to update value of _errorMessage
+     * Helper function to update value of _errorMessage.
      */
     private fun displayErrorMessage(isDisplayed: Boolean) {
         _errorMessage.value = isDisplayed
