@@ -1,0 +1,369 @@
+{
+  "page": 1,
+  "total_results": 57,
+  "total_pages": 3,
+  "results": [
+    {
+      "popularity": 215.35,
+      "vote_count": 14587,
+      "video": false,
+      "poster_path": "/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
+      "id": 475557,
+      "adult": false,
+      "backdrop_path": "/n6bUvigpRFqSwmPp1m2YADdbRBc.jpg",
+      "original_language": "en",
+      "original_title": "Joker",
+      "genre_ids": [
+        80,
+        18,
+        53
+      ],
+      "title": "Joker",
+      "vote_average": 8.2,
+      "overview": "During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.",
+      "release_date": "2019-10-02"
+    },
+    {
+      "popularity": 20.304,
+      "vote_count": 430,
+      "video": false,
+      "poster_path": "/7RlBs0An83fqAuKfwH5gKMcqgMc.jpg",
+      "id": 16234,
+      "adult": false,
+      "backdrop_path": "/7eFRxrUpEmXSRaQnSEum3hjmu9c.jpg",
+      "original_language": "en",
+      "original_title": "Batman Beyond: Return of the Joker",
+      "genre_ids": [
+        28,
+        16,
+        878,
+        10751
+      ],
+      "title": "Batman Beyond: Return of the Joker",
+      "vote_average": 7.5,
+      "overview": "The Joker is back with a vengeance, and Gotham's newest Dark Knight needs answers as he stands alone to face Gotham's most infamous Clown Prince of Crime.",
+      "release_date": "2000-12-12"
+    },
+    {
+      "popularity": 3.046,
+      "vote_count": 25,
+      "video": false,
+      "poster_path": "/vsTCxQvilO6GSMDL9IVl61bNL1D.jpg",
+      "id": 129507,
+      "adult": false,
+      "backdrop_path": null,
+      "original_language": "hi",
+      "original_title": "Joker",
+      "genre_ids": [
+        35,
+        878
+      ],
+      "title": "Joker",
+      "vote_average": 3.6,
+      "overview": "In 1947 when the maps of India and Pakistan were being drawn, an oversight ensured that the village of Paglapur didn't find a place in either country. Over 60 years later, Paglapur is isolated, and in need of help. The residents seek help, but as a direct result of being left off the map, they find noone willing to accept Paglapur, and its problems, as their jurisdiction. The villagers decide they need to draw media attention to Paglapur, and in so doing, gain acceptance and help from those who had previously denied them.",
+      "release_date": "2012-08-31"
+    },
+    {
+      "popularity": 3.677,
+      "vote_count": 9,
+      "video": false,
+      "poster_path": null,
+      "id": 214711,
+      "adult": false,
+      "backdrop_path": null,
+      "original_language": "en",
+      "original_title": "Joker Rising",
+      "genre_ids": [
+        80
+      ],
+      "title": "Joker Rising",
+      "vote_average": 6.5,
+      "overview": "The dark and gritty story of where the Joker came from and how he became the villain that he is today.",
+      "release_date": "2013-09-21"
+    },
+    {
+      "popularity": 9.155,
+      "vote_count": 1,
+      "video": false,
+      "poster_path": "/47U9bs308QAGoGgcrMsx6MKtotr.jpg",
+      "id": 734586,
+      "adult": false,
+      "backdrop_path": "/212dUHxXRdjylPqx3a3xIGtzjl9.jpg",
+      "original_language": "en",
+      "original_title": "Joker: Put on a Happy Face",
+      "genre_ids": [
+        99
+      ],
+      "title": "Joker: Put on a Happy Face",
+      "vote_average": 6,
+      "overview": "Featuring interviews with filmmakers and industry legends, discover the origins and evolution of The Joker, and learn why The Clown Prince ofCrime is universally hailed as the greatest comic-book supervillain of all time.",
+      "release_date": "2020-08-18"
+    },
+    {
+      "popularity": 5.28,
+      "vote_count": 143,
+      "video": false,
+      "poster_path": "/brxoc8xjWRWGoRMGLy1NV59LeYF.jpg",
+      "id": 133792,
+      "adult": false,
+      "backdrop_path": "/dV5XTZg4H3h60iiF6oSbPR0uPz7.jpg",
+      "original_language": "en",
+      "original_title": "The Joker Is Wild",
+      "genre_ids": [
+        18
+      ],
+      "title": "The Joker Is Wild",
+      "vote_average": 8.3,
+      "overview": "Frank Sinatra stars in director Charles Vidor's 1957 film biography of nightclub entertainer Joe E. Lewis. The cast also includes Mitzi Gaynor, Jeanne Crain, Eddie Albert, Beverly Garland, Jackie Coogan, Harold Huber, Barry Kelley, Ted de Corsia, Ned Glass, Mary Treen and Sid Melton.",
+      "release_date": "1957-09-26"
+    },
+    {
+      "popularity": 2.208,
+      "id": 146486,
+      "video": false,
+      "vote_count": 10,
+      "vote_average": 5.1,
+      "title": "Joker",
+      "release_date": "1991-11-01",
+      "original_language": "sv",
+      "original_title": "Joker",
+      "genre_ids": [
+        35
+      ],
+      "backdrop_path": "/53WIxWs7RWUja4CzE3TJOQ2xjVv.jpg",
+      "adult": false,
+      "overview": "",
+      "poster_path": "/rY8eu4yQTwpZgz8BEVKfGIh8TUG.jpg"
+    },
+    {
+      "popularity": 2.075,
+      "id": 92152,
+      "video": false,
+      "vote_count": 5,
+      "vote_average": 5.6,
+      "title": "Lethal Obsession",
+      "release_date": "1987-10-15",
+      "original_language": "de",
+      "original_title": "Der Joker",
+      "genre_ids": [
+        18,
+        80,
+        53
+      ],
+      "backdrop_path": null,
+      "adult": false,
+      "overview": "",
+      "poster_path": "/lCh6AFRr0NN7bxt8E52Xvg01Hlz.jpg"
+    },
+    {
+      "popularity": 2.197,
+      "vote_count": 0,
+      "video": false,
+      "poster_path": null,
+      "id": 649535,
+      "adult": false,
+      "backdrop_path": null,
+      "original_language": "en",
+      "original_title": "Joker 2",
+      "genre_ids": [
+        80,
+        18,
+        53
+      ],
+      "title": "Joker 2",
+      "vote_average": 0,
+      "overview": "Sequel to the 2019 film \"Joker\".",
+      "release_date": "2022-12-31"
+    },
+    {
+      "popularity": 5.736,
+      "genre_ids": [
+        28,
+        80,
+        10749
+      ],
+      "video": false,
+      "vote_count": 0,
+      "original_language": "en",
+      "adult": false,
+      "title": "Untitled Harley Quinn & The Joker Project",
+      "original_title": "Untitled Harley Quinn & The Joker Project",
+      "backdrop_path": null,
+      "id": 472639,
+      "vote_average": 0,
+      "overview": "A criminal love story. Plot unknown.",
+      "poster_path": null
+    },
+    {
+      "popularity": 2.513,
+      "vote_count": 1,
+      "video": false,
+      "poster_path": "/gaNfRY54MD8Z3xOu4qnIzjUwrJM.jpg",
+      "id": 219521,
+      "adult": false,
+      "backdrop_path": null,
+      "original_language": "en",
+      "original_title": "The Impractical Joker",
+      "genre_ids": [],
+      "title": "The Impractical Joker",
+      "vote_average": 7,
+      "overview": "Betty Boop's baking is interrupted by obnoxious practical joking friend Irving. Can Grampy out-joke the joker?",
+      "release_date": "1937-06-17"
+    },
+    {
+      "popularity": 3.923,
+      "vote_count": 12,
+      "video": false,
+      "poster_path": "/9jCuI9ysebWcE9gAR7V3ZASRt5V.jpg",
+      "id": 416572,
+      "adult": false,
+      "backdrop_path": "/fihXbO1gnEcoeYNzSdV8864XLSS.jpg",
+      "original_language": "en",
+      "original_title": "Joker's Poltergeist",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "title": "Joker's Poltergeist",
+      "vote_average": 4.2,
+      "overview": "After a clown-masked assailant guns down Aurora's Place, the resident theater owner fights to re-open her business.",
+      "release_date": "2015-06-03"
+    },
+    {
+      "popularity": 0.804,
+      "vote_count": 0,
+      "video": false,
+      "poster_path": "/sxvGzhK62cZ3KVDnJ7hDTcQvgMz.jpg",
+      "id": 361365,
+      "adult": false,
+      "backdrop_path": null,
+      "original_language": "en",
+      "original_title": "Joker",
+      "genre_ids": [],
+      "title": "Joker",
+      "vote_average": 0,
+      "overview": "1983 short by Tessa Hughes-Freeland",
+      "release_date": "1983-09-25"
+    },
+    {
+      "popularity": 1.483,
+      "id": 563477,
+      "video": false,
+      "vote_count": 0,
+      "vote_average": 0,
+      "title": "Ero the Joker",
+      "release_date": "2018-11-06",
+      "original_language": "en",
+      "original_title": "Ero the Joker",
+      "genre_ids": [],
+      "backdrop_path": null,
+      "adult": false,
+      "overview": "To find a wife who truly loves him, a young trickster disguises himself as a pauper. But getting her parents' blessing will take every trick in the book.  Part of the Croatian National Theatre’s repertoire since its premiere in 1935, Jakov Gotovac’s comic opera is an ode to a rural way of life. It culminates in a frenzied tempo with a vigorous ballet – a celebration of Dalmatian music and dance.",
+      "poster_path": "/xNVLGgvlyzeGAM7jeOMTQ4DXCvD.jpg"
+    },
+    {
+      "popularity": 0.846,
+      "vote_count": 3,
+      "video": false,
+      "poster_path": "/68DKYcI7DdhYfw9C2rGgs6FdLFp.jpg",
+      "id": 394520,
+      "adult": false,
+      "backdrop_path": null,
+      "original_language": "ja",
+      "original_title": "JOKER マージナル・シティ",
+      "genre_ids": [
+        16,
+        9648,
+        878
+      ],
+      "title": "JOKER: Marginal City",
+      "vote_average": 4.7,
+      "overview": "Joker is a cyborg who has superior strength, can absorb the DNA of any person by touch and regrow its body or part of it at will (hence Joker can be a male or a female). Joker belongs to a special troop of law enforcement: as cop, judge and executioner at the same time. Along with his/her lover, a police officer, they have dealt against criminals of every type.",
+      "release_date": "1992-04-21"
+    },
+    {
+      "popularity": 0.927,
+      "id": 556726,
+      "video": false,
+      "vote_count": 0,
+      "vote_average": 0,
+      "title": "Le joker",
+      "release_date": "1930-11-14",
+      "original_language": "fr",
+      "original_title": "Le joker",
+      "genre_ids": [],
+      "backdrop_path": null,
+      "adult": false,
+      "overview": "",
+      "poster_path": "/6HaRo7pdCEOkl0r4WGBhZUtQBUr.jpg"
+    },
+    {
+      "popularity": 0.826,
+      "id": 670647,
+      "video": false,
+      "vote_count": 0,
+      "vote_average": 0,
+      "title": "JOKER ジョーカー",
+      "release_date": "1996-01-12",
+      "original_language": "ja",
+      "original_title": "JOKER ジョーカー",
+      "genre_ids": [],
+      "backdrop_path": null,
+      "adult": false,
+      "overview": "A man and a woman get mixed up with yakuza.",
+      "poster_path": "/gVytZHh9wv98wjTczJX9lZ7OsLT.jpg"
+    },
+    {
+      "popularity": 0.6,
+      "vote_count": 3,
+      "video": false,
+      "poster_path": null,
+      "id": 407788,
+      "adult": false,
+      "backdrop_path": null,
+      "original_language": "en",
+      "original_title": "King, Queen and Joker",
+      "genre_ids": [],
+      "title": "King, Queen and Joker",
+      "vote_average": 5.3,
+      "overview": "King, Queen, Joker is a 1921 silent feature farce written and directed by Sydney Chaplin, Charlie's older brother. The picture was produced by Famous Players-Lasky and distributed through Paramount Pictures. The film was shot in England, France and the United States.\r Less than a reel of this film, the barbershop sequence, survives at the British Film Institute. It was included in the 2011 Criterion DVD special two disc edition release of The Great Dictator.",
+      "release_date": "1921-05-15"
+    },
+    {
+      "popularity": 0.805,
+      "vote_count": 0,
+      "video": false,
+      "poster_path": null,
+      "id": 301290,
+      "adult": false,
+      "backdrop_path": null,
+      "original_language": "en",
+      "original_title": "An Ace and a Joker",
+      "genre_ids": [
+        16
+      ],
+      "title": "An Ace and a Joker",
+      "vote_average": 0,
+      "overview": "",
+      "release_date": "1918-08-10"
+    },
+    {
+      "popularity": 0.6,
+      "vote_count": 0,
+      "video": false,
+      "poster_path": null,
+      "id": 373797,
+      "adult": false,
+      "backdrop_path": null,
+      "original_language": "ml",
+      "original_title": "Mera Naam Joker",
+      "genre_ids": [
+        35
+      ],
+      "title": "Mera Naam Joker",
+      "vote_average": 0,
+      "overview": "The story of four friends who decide to start a Auto Mechanic story.",
+      "release_date": "2000-08-16"
+    }
+  ]
+}

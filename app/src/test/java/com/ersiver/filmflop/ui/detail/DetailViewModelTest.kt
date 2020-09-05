@@ -18,7 +18,6 @@ import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 
-
 /**
  * Local unit tests for the implementation of [DetailViewModel]
  */

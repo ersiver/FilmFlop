@@ -1,0 +1,45 @@
+{
+  "id": 475557,
+  "results": [
+    {
+      "id": "5ccf56c8925141044e2c88d6",
+      "iso_639_1": "en",
+      "iso_3166_1": "US",
+      "key": "t433PEQGErc",
+      "name": "Teaser Trailer",
+      "site": "YouTube",
+      "size": 1080,
+      "type": "Trailer"
+    },
+    {
+      "id": "5f46113f511d090037bf4b78",
+      "iso_639_1": "en",
+      "iso_3166_1": "US",
+      "key": "zAGVQLHvwOY",
+      "name": "JOKER - Final Trailer - Now Playing In Theaters",
+      "site": "YouTube",
+      "size": 1080,
+      "type": "Trailer"
+    },
+    {
+      "id": "5d66ab95ba4802610c26a044",
+      "iso_639_1": "en",
+      "iso_3166_1": "US",
+      "key": "xRjvmVaFHkk",
+      "name": "Final Trailer",
+      "site": "YouTube",
+      "size": 1080,
+      "type": "Trailer"
+    },
+    {
+      "id": "5ea01bdc162bc3001c0316d7",
+      "iso_639_1": "en",
+      "iso_3166_1": "US",
+      "key": "C6WqbLnpOoQ",
+      "name": "Joker - 10 Minute Preview - Warner Bros. UK",
+      "site": "YouTube",
+      "size": 1080,
+      "type": "Clip"
+    }
+  ]
+}
