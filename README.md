@@ -39,17 +39,16 @@ The app demonstrates use of MVVM, Kotlin Coroutines and Android Architecture Com
   - Moshi to handle the deserialization of the returned JSON to Kotlin data objects.
   - Timber for logs.
   
-### Testing:  
-####  Device Tests
-  - <b>Database Testing</b> - The project creates an in memory database for each database test but still runs them on the device. 
-#### Local Unit Tests
-  - <b>ViewModel Tests</b> - ViewModels are tested using local unit tests with mock Repository implementations.
-  - <b>Webservice Tests</b> - The project uses MockWebServer project to test REST api interactions.  
-  
- 
 ### Architecture:
   - MVVM Architecture 
   - Repository pattern
+  
+## Testing 
+###  Device Tests:
+  - <b>Database Testing</b> - The project creates an in memory database for each database test but still runs them on the device. 
+### Local Unit Tests:
+  - <b>ViewModel Tests</b> - ViewModels are tested using local unit tests with mock Repository implementations.
+  - <b>Webservice Tests</b> - The project uses MockWebServer project to test REST api interactions.  
   
 ## Design
 + FilmFLop is built with Material Components for Android.
