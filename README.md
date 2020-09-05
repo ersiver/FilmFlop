@@ -19,7 +19,7 @@ The app demonstrates use of MVVM, Kotlin Coroutines and Android Architecture Com
   
  
 ## Tech stack & Open-source libraries
-### Android Architecture Components & good practices </b>
+### Android Architecture Components & good practices: </b>
   - DataBinding - the app binds the UI components in the XML layout to data sources using a DataBinding rather than programmatically. The UI calls are done in Binding Adapters reducing boilerplate code in the fragments.
   - Room Persistence - Access app's SQLite database with in-app objects and compile-time checks.
   - NetworkBoundResource - to write the disk and network-bound implementations providing offline capabilities.
@@ -30,7 +30,7 @@ The app demonstrates use of MVVM, Kotlin Coroutines and Android Architecture Com
   - SafeArgs for passing data between fragments.
   - Dagger-Hilt for dependency injection.
   
-### Third party
+### Third party:
 <img src="/previews/preview_2.gif" align="right" width="33%"/>
 
   - Glide for image loading.
@@ -46,7 +46,7 @@ The app demonstrates use of MVVM, Kotlin Coroutines and Android Architecture Com
   - <b>ViewModel Tests</b> - ViewModels are tested using local unit tests with mock Repository implementations.  
   
  
-### Architecture
+### Architecture:
   - MVVM Architecture 
   - Repository pattern
   
