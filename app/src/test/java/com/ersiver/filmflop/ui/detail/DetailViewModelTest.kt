@@ -42,13 +42,17 @@ class DetailViewModelTest {
         repository = MovieRepository(service, database)
         viewModel = DetailViewModel(repository)
 
+        //Load the movie from database for each test.
         `when`(database.movieDao.getMovie(movie.id)).thenReturn(movie)
     }
 
     @Test
     fun getMovieTest() {
+        //When ViewModel is asked to load a movie by id
         viewModel.getMovie(movie.id)
         val value = viewModel.movie.getOrAwaitValue()
+
+        //Then the observed data matches the expected values.
         assertThat(value.id, `is`(movie.id))
         assertThat(value.title, `is`(movie.title))
         assertThat(value.overview, `is`(movie.overview))
@@ -65,22 +69,31 @@ class DetailViewModelTest {
 
     @Test
     fun onTrailerClickedTest() {
+        //Load the movie
         viewModel.getMovie(movie.id)
         viewModel.movie.getOrAwaitValue()
+
+        // When the ViewModel is asked to navigate to trailer.
         viewModel.onTrailerClicked()
+
+        //Then the value of trailer event is a movie.
         val event = viewModel.showTrailerEvent.getOrAwaitValue()
         assertThat(event.getContentIfNotHandled(), `is`(movie.trailerUrl))
     }
 
     @Test
     fun setFavouriteTest() {
+        //Load the movie
         viewModel.getMovie(movie.id)
         val value = viewModel.movie.getOrAwaitValue()
 
         //Verify the initial isFavourite value is false
         assertThat(value.isFavourite, `is`(false))
 
+        //When viewModel is asked to change the isFavourite value.
         viewModel.setFavorite()
+
+        //Then the new value is true.
         assertThat(value.isFavourite, `is`(true))
     }
 }

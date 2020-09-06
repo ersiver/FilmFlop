@@ -3,6 +3,7 @@ package com.ersiver.filmflop.ui.search
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.annotation.VisibleForTesting
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.ersiver.filmflop.model.Movie
@@ -100,7 +101,7 @@ class SearchViewModel @ViewModelInject constructor(
      * Get the list of searched movies via repository.
      * Submit the list to the adapter via BindingAdapters.
      */
-    private fun search(query: String) {
+    fun search(query: String) {
         _results.removeSource(movieSource)
 
         viewModelScope.launch {
