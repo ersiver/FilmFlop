@@ -48,7 +48,9 @@ The app demonstrates use of MVVM, Kotlin Coroutines and Android Architecture Com
   - <b>Database Testing</b> - The project creates an in memory database for each database test but still runs them on the device. 
 ### Local Unit Tests:
   - <b>ViewModel Tests</b> - ViewModels are tested using local unit tests with mock Repository implementations.
-  - <b>Webservice Tests</b> - The project uses MockWebServer project to test REST api interactions.  
+  - <b>Webservice Tests</b> - The project uses MockWebServer project to test REST api interactions. 
+  - <b> Repository Tests</b> - Repository is tested using local unit tests with mock web service and mock database.  
+
   
 ## Design
 + FilmFLop is built with Material Components for Android.
