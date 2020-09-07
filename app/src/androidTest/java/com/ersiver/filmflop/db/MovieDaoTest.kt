@@ -1,10 +1,8 @@
-package com.ersiver.filmflop
+package com.ersiver.filmflop.db
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
-import com.ersiver.filmflop.db.GenreDao
-import com.ersiver.filmflop.db.MovieDao
 import com.ersiver.filmflop.model.Movie
 import com.ersiver.filmflop.util.DEFAULT_SORT
 import com.ersiver.filmflop.util.SortUtil
@@ -118,7 +116,7 @@ class MovieDaoTest : LocalDatabase() {
         movieDao.insert(listOf(movie))
 
         //Get movie by id from the database by title.
-        val loaded = movieDao.search(movie.title!!)
+        val loaded = movieDao.getMovies(movie.title!!)
 
         //Verify the loaded data contains the expected values
         assertThat(loaded.size, `is`(1))

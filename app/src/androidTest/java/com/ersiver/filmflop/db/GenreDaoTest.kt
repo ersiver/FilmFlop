@@ -1,9 +1,8 @@
-package com.ersiver.filmflop
+package com.ersiver.filmflop.db
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
-import com.ersiver.filmflop.db.GenreDao
 import com.ersiver.filmflop.utils.TestUtil
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

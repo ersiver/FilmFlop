@@ -6,7 +6,6 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class MovieSearchResponse(
-    val page : Int,
     @Json(name = "results")
     val apiMovies: List<ApiMovie>
 )

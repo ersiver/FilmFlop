@@ -1,8 +1,6 @@
 package com.ersiver.filmflop.repository
 
 import androidx.lifecycle.*
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PagedList
 import androidx.sqlite.db.SimpleSQLiteQuery
 import com.ersiver.filmflop.api.*
 import com.ersiver.filmflop.db.FilmFlopDatabase
@@ -46,7 +44,7 @@ class MovieRepository @Inject constructor(
 
             override suspend fun loadFromDb(): List<Movie> {
                 return withContext(Dispatchers.IO) {
-                    database.movieDao.search(query)
+                    database.movieDao.getMovies(query)
                 }
             }
 
@@ -59,7 +57,6 @@ class MovieRepository @Inject constructor(
                     item.genreNames = item.genreIds?.let { getGenresNames(it) }
                     item.trailerUrl = getTrailer(item.id)
                 }
-
                 withContext(Dispatchers.IO) {
                     database.movieDao.insert(items)
                 }
@@ -139,6 +136,7 @@ class MovieRepository @Inject constructor(
     private suspend fun getGenresFromNetwork() {
         withContext(Dispatchers.IO) {
             val genresDeferred = service.getGenresAsync().await()
+
             database.genreDao.insertAll(genresDeferred.asModel())
         }
     }
@@ -158,7 +156,6 @@ class MovieRepository @Inject constructor(
         return withContext(Dispatchers.IO) {
             if (shouldFetch(database.trailerDao.getTrailer(id), id.toString()))
                 getTrailerFromNetwork(id)
-
             database.trailerDao.getTrailer(id).url
         }
     }
@@ -173,14 +170,11 @@ class MovieRepository @Inject constructor(
         withContext(Dispatchers.IO) {
             val response = service.getTrailerAsync(id).await()
             val trailerList = response.trailersApi
-
             val trailer = Trailer(id)
-
             if (trailerList.isNotEmpty())
                 trailerList[0].url?.let {
                     trailer.url = TRAILER_URL + it
                 }
-
             database.trailerDao.insert(trailer)
         }
     }

@@ -16,7 +16,7 @@ interface MovieDao {
 
     //Returns list of movies by a title.
     @Query("SELECT * FROM movies_table WHERE movie_title LIKE '%' || :query || '%' ORDER BY movie_popularity DESC")
-    suspend fun search(query: String): List<Movie>
+    suspend fun getMovies(query: String): List<Movie>
 
     //Updates movie's fields.
     @Update

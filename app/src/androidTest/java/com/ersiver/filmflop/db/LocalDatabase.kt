@@ -1,9 +1,8 @@
-package com.ersiver.filmflop
+package com.ersiver.filmflop.db
 
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.ersiver.filmflop.db.FilmFlopDatabase
 import org.junit.After
 import org.junit.Before
 import org.junit.runner.RunWith

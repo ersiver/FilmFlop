@@ -98,7 +98,7 @@ class HomeViewModelTest {
         val list = MutableLiveData<List<Movie>>()
         `when`(repository.getFavouriteMovies(DEFAULT_SORT)).thenReturn(list)
 
-        val favouriteMovies = mock<Observer<List<Movie>>>()
+        val favouriteMovies = mock<Observer<List<Movie>>>() //used MockitoExt.
         viewModel.favouriteMovies.observeForever(favouriteMovies)
         viewModel.getFavourites(DEFAULT_SORT)
         verify(repository).getFavouriteMovies(DEFAULT_SORT)

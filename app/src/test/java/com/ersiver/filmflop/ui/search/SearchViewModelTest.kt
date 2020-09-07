@@ -73,7 +73,7 @@ class SearchViewModelTest {
     fun searchTest() = runBlockingTest {
         val foo = MutableLiveData<Resource<List<Movie>>>()
         `when`(repository.searchMovies("foo")).thenReturn(foo)
-        val observer = mock<Observer<Resource<List<Movie>>>>()
+        val observer = mock<Observer<Resource<List<Movie>>>>() //used MockitoExt.
         viewModel.results.observeForever(observer)
         viewModel.search("foo")
         verify(repository).searchMovies("foo")

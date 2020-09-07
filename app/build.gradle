@@ -18,7 +18,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.ersiver.filmflop.CustomTestRunner"
     }
 
     buildTypes {
@@ -38,6 +38,10 @@ android {
     sourceSets {
         androidTest.java.srcDirs += "src/test-common/java"
         test.java.srcDirs += "src/test-common/java"
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 
     buildFeatures{
@@ -102,6 +106,14 @@ dependencies {
     androidTestImplementation 'com.linkedin.dexmaker:dexmaker-mockito:2.12.1'
     androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.28.3-alpha'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.28.3-alpha'
+
+    // debugImplementation required vs testImplementation: https://issuetracker.google.com/issues/128612536
+    debugImplementation("androidx.fragment:fragment-testing:1.2.5") {
+        exclude group:'androidx.test', module:'monitor'
+    }
+
 
 
     // Timber
