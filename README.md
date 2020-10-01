@@ -4,14 +4,15 @@
 FilmFlop is a demo movie app to browse TMDB's movies by titles with options to save a movie to the list of favourites, sort the list and delete.
 The app demonstrates use of MVVM, Kotlin Coroutines and Android Architecture Components. FilmFlop fetches a data from the network with use of Retrofit integrating persisted data in the database providing offline capabilities via NetworkBoundResource. The app demonstrates how to expose network status using a Resource class that encapsulate both the data and its state. FilmFlop provides an eye-catching design built with Material Components for Android.
 
-## Features
+## Overview
+
   + Displaying network status while fetching data (circle progress bar when loading, error message and retry button in case of failures).
-  + Adding a movie to the list of favourite by pressing the icon in the menu. The icon will changed appropriately indicating an option to remove the movie.
+  + Allow users to mark a movie as a favorite in the details view by tapping a button (heart). The icon will changed appropriately indicating an option to remove the movie.
   + Deleting a movie from the favourites with use of contextual action bar.
   + SnackBar with Undo delete option.
   + Sorting a list of favourites by a title or time-added with a use of SupportSQLiteQuery.
   + Changing a layout from a linear to a grid by pressing icon in the menu. The icon will changed appropriately indicating different layout.
-  + Opening a movie's trailer on YouTobue.
+  + Allow users to view and play trailers in the YouTube.
   + Switching day/night mode.
   + Showing movie's rating in form of stars.
   + Displaying loading animation when loading images into the ImageViews.
@@ -72,4 +73,4 @@ The app demonstrates use of MVVM, Kotlin Coroutines and Android Architecture Com
 <img src="/previews/screenshot_7.png" width="33%"/> <img src="/previews/screenshot_8.png" width="33%"/>                                        
 
 ## Open API
-FilmFlop uses the [TMDBApi] for constructing RESTful API. Obtain your free API_KEY: https://www.themoviedb.org/signup and paste it to the Constants file to try the app.
+FilmFlop uses the TMDBApi for constructing RESTful API. Obtain your free [API_KEY:](https://www.themoviedb.org/signup) and paste it to the Constants file to try the app.
