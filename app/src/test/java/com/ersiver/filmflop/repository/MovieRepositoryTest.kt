@@ -23,28 +23,21 @@ import org.mockito.Mockito.*
  */
 @ExperimentalCoroutinesApi
 class MovieRepositoryTest {
-    private lateinit var repository: MovieRepository
-    private val service = mock(FilmFlopService::class.java)
-    private lateinit var database: FilmFlopDatabase
-
     @get:Rule
     val instantExecutorRule = InstantTaskExecutorRule()
 
     @get:Rule
     val mainCoroutinesRule = MainCoroutinesRule()
 
-    @Before
-    fun setUp() {
-        database = mock(FilmFlopDatabase::class.java)
-        repository = MovieRepository(service, database)
-    }
-    @After
-    fun tearDown(){
-        reset(database)
-    }
+    private lateinit var repository: MovieRepository
+    private val service = mock(FilmFlopService::class.java)
+    private lateinit var database: FilmFlopDatabase
 
     @Test
     fun loadMoviesFromDbTest() = runBlockingTest {
+        database = mock(FilmFlopDatabase::class.java)
+        repository = MovieRepository(service, database)
+
        val movieDao = mock(MovieDao::class.java)
         `when`(database.movieDao).thenReturn(movieDao)
 
@@ -62,6 +55,9 @@ class MovieRepositoryTest {
 
     @Test
     fun fetchMoviesFromNetwork() = runBlockingTest {
+        database = mock(FilmFlopDatabase::class.java)
+        repository = MovieRepository(service, database)
+
         val movieDao = mock(MovieDao::class.java)
         `when`(database.movieDao).thenReturn(movieDao)
 
