@@ -37,9 +37,14 @@ class DetailFragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = detailViewModel
-            detailToolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+            setupToolbar()
         }
         return binding.root
+    }
+
+    private fun FragmentDetailBinding.setupToolbar() {
+        detailToolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+        detailToolbar.navigationContentDescription = resources.getString(R.string.nav_up)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

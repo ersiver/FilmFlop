@@ -14,7 +14,7 @@
         android:elevation="@dimen/grid_2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/menu_item_constraint_layout"
+            android:id="@+id/about_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/grid_2"

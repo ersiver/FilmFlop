@@ -7,7 +7,6 @@ import android.view.*
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.ersiver.filmflop.R
 import com.ersiver.filmflop.databinding.FragmentHomeBinding
@@ -70,14 +69,14 @@ class HomeFragment : Fragment() {
             displayContextualMenuWithDelete(it)
         })
 
-        homeViewModel.columnCount.observe(viewLifecycleOwner, Observer { columnCount ->
+        homeViewModel.columnCount.observe(viewLifecycleOwner) { columnCount ->
             saveColumnCountToSharedPrefs(columnCount)
-        })
+        }
 
-        homeViewModel.sortType.observe(viewLifecycleOwner, Observer { sort ->
+        homeViewModel.sortType.observe(viewLifecycleOwner) { sort ->
             saveSortToSharedPrefs(sort)
             homeViewModel.getFavourites(sort)
-        })
+        }
     }
 
     /**
@@ -114,6 +113,7 @@ class HomeFragment : Fragment() {
      * Setup custom toolbar with NavigationIcon, which opens a drawer.
      */
     private fun FragmentHomeBinding.setupToolbar() {
+        homeToolbar.navigationContentDescription = resources.getString(R.string.open_nav_drawer)
         homeToolbar.setNavigationOnClickListener {
             requireActivity().drawer_layout.openDrawer(
                 GravityCompat.START

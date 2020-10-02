@@ -42,16 +42,22 @@ class SearchFragment : Fragment() {
             viewModel = searchViewModel
             list.adapter = adapter
             lifecycleOwner = viewLifecycleOwner
-            searchToolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+
+            setupToolbar()
         }
         return binding.root
+    }
+
+    private fun FragmentSearchBinding.setupToolbar() {
+        searchToolbar.navigationContentDescription = resources.getString(R.string.nav_up)
+        searchToolbar.setNavigationOnClickListener { findNavController().navigateUp() }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         getSavedPrefsAndStartViewModel()
 
-        searchViewModel.navigateToDetailEvent.observe(viewLifecycleOwner, EventObserver {movie->
+        searchViewModel.navigateToDetailEvent.observe(viewLifecycleOwner, EventObserver { movie ->
             findNavController().navigate(
                 SearchFragmentDirections.actionSearchFragmentToDetailFragment(
                     movie
@@ -59,9 +65,9 @@ class SearchFragment : Fragment() {
             )
         })
 
-        searchViewModel.columnCount.observe(viewLifecycleOwner, Observer { columnCount ->
+        searchViewModel.columnCount.observe(viewLifecycleOwner) { columnCount ->
             saveColumnCountToSharedPrefs(columnCount)
-        })
+        }
     }
 
     /**
@@ -100,7 +106,7 @@ class SearchFragment : Fragment() {
      * Saves a new column count to the shared preferences.
      */
     private fun saveColumnCountToSharedPrefs(columnCount: Int) {
-        with(sharedPrefs.edit()){
+        with(sharedPrefs.edit()) {
             putInt(SEARCH_GRID_COLUMN, columnCount)
             apply()
         }

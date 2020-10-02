@@ -18,7 +18,7 @@
     <string name="mode_header">Day and Night Mode</string>
 
     <!--  Preferences Title-->
-    <string name="mode_title">Swtich Mode</string>
+    <string name="mode_title">Switch Mode</string>
 
     <!--  Popup Menu Titles-->
     <string name="change_layout">Change layout</string>
@@ -86,4 +86,8 @@
     <string name="date_icon">date icon</string>
     <string name="language_icon">language icon</string>
     <string name="app_logo">App logo</string>
+
+    <string name="open_nav_drawer">"Open drawer"</string>
+    <string name="nav_up">"Navigation up"</string>
+
 </resources>

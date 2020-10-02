@@ -68,7 +68,7 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
 
     // AndroidX
     implementation 'androidx.core:core-ktx:1.3.1'
@@ -81,6 +81,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     implementation 'androidx.preference:preference:1.1.1'
+
+    //Espresso idling resource
+    implementation 'androidx.test.espresso:espresso-idling-resource:3.3.0'
 
     // Material Components
     implementation 'com.google.android.material:material:1.3.0-alpha02'
@@ -106,14 +109,15 @@ dependencies {
     androidTestImplementation 'com.linkedin.dexmaker:dexmaker-mockito:2.12.1'
     androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.28.3-alpha'
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.28.3-alpha'
+    androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.3.0'
 
     // debugImplementation required vs testImplementation: https://issuetracker.google.com/issues/128612536
     debugImplementation("androidx.fragment:fragment-testing:1.2.5") {
         exclude group:'androidx.test', module:'monitor'
     }
-
 
 
     // Timber
@@ -146,8 +150,8 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
 
     // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7'
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 
     // Room dependency
     def room_version = "2.3.0-alpha02"
