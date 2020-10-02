@@ -125,7 +125,7 @@ class AppNavigationTest {
      * screen is clicked, then the drawer is open.
      */
     @Test
-    fun homeScreen_clickOnHomeButton_OpensDrawer(){
+    fun homeScreen_clickOnHomeButton_OpensDrawer() {
         // Start up Home screen
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
         dataBindingIdlingResource.monitorActivity(activityScenario)
@@ -177,15 +177,15 @@ class AppNavigationTest {
      * is clicked, then we navigate back to the Home screen.
      */
     @Test
-    fun searchScreen_upButton_navigateToHomeScreen(){
+    fun searchScreen_upButton_navigateToHomeScreen() {
         // Start up Home screen
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
         dataBindingIdlingResource.monitorActivity(activityScenario)
 
         // Navigate to the Search screen
-       activityScenario.onActivity {
-           it.findNavController(R.id.nav_host_fragment).navigate(R.id.nav_search)
-       }
+        activityScenario.onActivity {
+            it.findNavController(R.id.nav_host_fragment).navigate(R.id.nav_search)
+        }
 
         //Verify navigation to Detail.
         onView(withId(R.id.search_toolbar)).check(matches(isDisplayed()))

@@ -46,6 +46,7 @@ The app demonstrates use of MVVM, Kotlin Coroutines and Android Architecture Com
   
 ## Testing 
 ###  Device Tests:
+ -  <b>App Navigation Test</b> - Navigation between screens is tested using Espresso UI framework and ActivityScenario for lifecycle state. `Hilt` provides test version of Repository and automatically generates a new set of components for each test. This is done with use of a `CustomTestRunner` that uses an Application configured with Hilt. In order to make Espresso aware of data binding`DataBindingIdlingResource` is registered for UI test.
   - <b>Database Testing</b> - The project creates an in memory database for each database test but still runs them on the device. 
 ### Local Unit Tests:
   - <b>ViewModel Tests</b> - ViewModels are tested using local unit tests with mock Repository implementations.
